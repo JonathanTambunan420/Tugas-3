@@ -1,0 +1,50 @@
+let barangList = [];
+let totalPenjualan = 0;
+
+function tambahBarang() {
+  const nama = document.getElementById("namaBarang").value;
+  const stok = parseInt(document.getElementById("stokBarang").value);
+  const harga = parseInt(document.getElementById("hargaBarang").value);
+
+  if (!nama || isNaN(stok) || isNaN(harga)) {
+    alert("Lengkapi semua data!");
+    return;
+  }
+
+  barangList.push({ nama, stok, harga });
+  tampilkanBarang();
+  document.getElementById("namaBarang").value = "";
+  document.getElementById("stokBarang").value = "";
+  document.getElementById("hargaBarang").value = "";
+}
+
+function tampilkanBarang() {
+  const tbody = document.querySelector("#tabelBarang tbody");
+  tbody.innerHTML = "";
+
+  barangList.forEach((barang, index) => {
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>${barang.nama}</td>
+      <td>${barang.stok}</td>
+      <td>Rp ${barang.harga}</td>
+      <td>
+        <button class="jual-btn" onclick="jualBarang(${index})">Jual 1</button>
+      </td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+}
+
+function jualBarang(index) {
+  if (barangList[index].stok > 0) {
+    barangList[index].stok--;
+    totalPenjualan += barangList[index].harga;
+    document.getElementById("totalPenjualan").innerText = `Rp ${totalPenjualan}`;
+    tampilkanBarang();
+  } else {
+    alert("Stok habis!");
+  }
+}
