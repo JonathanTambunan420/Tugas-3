@@ -1,28 +1,51 @@
-<section class="form-section">
-  <h2>Tambah Barang</h2>
-  <div class="form-group">
-    <input type="text" id="namaBarang" placeholder="Nama Barang">
-    <input type="number" id="stokBarang" placeholder="Stok">
-    <input type="number" id="hargaBarang" placeholder="Harga Satuan">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aplikasi Persediaan & Penjualan</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://img.icons8.com/ios/452/inventory.png" />
+</head>
+<body>
+  <div class="container">
+    <header>
+	<img src="https://upload.wikimedia.org/wikipedia/id/9/9b/UNDIPOfficial.png" alt="Logo Universitas Diponegoro"
+class="logo">
+      <h1>Aplikasi Persediaan & Penjualan</h1>
+      <p>Kelola stok dan penjualan barang dengan mudah</p>
+    </header>
+
+    <section class="form-section">
+      <h2>Tambah Barang</h2>
+      <div class="form-group">
+        <input type="text" id="namaBarang" placeholder="Nama Barang">
+        <input type="number" id="stokBarang" placeholder="Stok">
+        <input type="number" id="hargaBarang" placeholder="Harga Satuan">
+      </div>
+      <button onclick="tambahBarang()">Tambah Barang</button>
+    </section>
+
+    <section class="barang-section">
+      <h2>Daftar Barang</h2>
+      <table id="tabelBarang">
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Stok</th>
+            <th>Harga</th>
+            <th>Jual</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="penjualan-section">
+      <h2>Total Penjualan: <span id="totalPenjualan">Rp 0</span></h2>
+    </section>
   </div>
-  <button onclick="tambahBarang()">Tambah Barang</button>
-</section>
 
-<section class="barang-section">
-  <h2>Daftar Barang</h2>
-  <table id="tabelBarang">
-    <thead>
-      <tr>
-        <th>Nama</th>
-        <th>Stok</th>
-        <th>Harga</th>
-        <th>Jual</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</section>
-
-<section class="penjualan-section">
-  <h2>Total Penjualan: <span id="totalPenjualan">Rp 0</span></h2>
-</section>
+  <script src="script.js"></script>
+</body>
+</html>
